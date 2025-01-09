@@ -1,0 +1,26 @@
+Side effect <--------- Result of an execution of an impure function *
+
+Change a global variable
+Making an API call
+DOM manipulation
+Work with localstorage
+
+const [searchTerm, setSearchTerm] = useState(localStorage.getItem("search") || "");
+
+const handleSearch = ({ target }) => {
+  setSearchTerm(target.value);
+  localStorage.setItem("search", target.value) 
+}
+
+state should be synced with localStorage <--------------- **
+
+useEffect(() => {
+  localStorage.setItem("search", searchTerm); <------------ Side effect
+}, [searchTerm])
+
+[] <------------ Once, on initial load
+Calling API
+
+Nothing <---------- Once, on initial load and every re-render
+
+... lifecycle ...

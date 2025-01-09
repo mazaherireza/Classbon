@@ -1,0 +1,16 @@
+.login-wrapper p {
+  font-size: small;
+}
+
+.login-wrapper .btn {
+  width: 100%;
+  margin-top: 1rem;
+  background-color: var(--primary, #3f80ea);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}

@@ -1,0 +1,81 @@
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-wrapper .modal-content {
+  width: 25%;
+  height: 20%;
+  background-color: white;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  position: relative;
+  animation: fade linear 1s;
+  -webkit-animation: fade linear 1s;
+}
+
+.modal-wrapper .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.modal-wrapper .modal-header .title {
+  font-size: small;
+}
+
+.modal-wrapper .modal-header,
+.modal-wrapper .modal-content,
+.modal-wrapper .modal-footer {
+  padding: 0.25rem 0.5rem;
+}
+
+.modal-wrapper .modal-body {
+  font-size: small;
+}
+
+.modal-wrapper .modal-footer {
+  border-top: 1px solid black;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - (2 * 0.5rem));
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-wrapper button {
+  padding: 0.125rem 0.5rem;
+  background-color: white;
+  color: var(--primary);
+  border-radius: 0.2rem;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  -ms-border-radius: 0.2rem;
+  -o-border-radius: 0.2rem;
+  font-size: small;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .modal-wrapper .modal-content {
+    width: 50%;
+  }
+}

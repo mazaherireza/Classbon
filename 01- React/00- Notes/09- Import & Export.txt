@@ -1,0 +1,13 @@
+import & export
+
+... index file as Entry point
+
+Encapsulation <---------------------- **
+
+package.json
+-------------
+{
+  "type": "module"
+}
+
+export default <---------------- Main functionality

@@ -1,0 +1,25 @@
+Object Desturcturing
+...
+Nested destructuring <--------------- **
+
+const { name, education: { degree } } = user
+
+const Item = ({ item: { title, url, author, points } }) => { ... }
+
+title <------------- item.title
+url <--------------- item.url
+author <------------ item.author
+------
+Spread Operator ...
+
+<Item key={item.id} item={item} /> <---------------- X
+<Item key={item.id} {...item} />
+
+const Item = ({ title, url, author, points }) ...
+
+List.jsx
+--------
+...
+{
+  list.map({id, ...itemWithoutId}) => <Item key={id} {...itemWithoutId} />
+}

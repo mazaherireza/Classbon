@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "IranYekan";
+  src: local("IranYekan"), url("/fonts/IranYekan.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url("/fonts/Inter.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary: #3f80ea;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  font-family: IranYekan;
+}
+
+.container {
+  padding: 1rem 3rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: IranYekan;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active-link {
+  color: var(--primary);
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    padding: 0.5rem 1.5rem;
+  }
+}

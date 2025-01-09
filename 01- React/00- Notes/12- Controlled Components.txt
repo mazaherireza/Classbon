@@ -1,0 +1,22 @@
+Lifting State <------------ ***
+------------------
+Controlled Components <------------- **
+...
+const $ = document;
+const input = $.querySelector("input");
+console.log(input.value);
+
+... Internal State <--------------- **
+
+... Connection ... React State to HTML element
+
+App.jsx
+-------
+...
+<Search keySearch={keySearch} onSearch={onSearch} />
+...
+
+Search.jsx <---------------- Controlled Component (via State)
+----------
+...
+<input type="text" value={props.keySearch} />

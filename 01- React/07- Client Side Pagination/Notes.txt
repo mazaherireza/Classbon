@@ -1,0 +1,71 @@
+Client Pagination
+-----------------
+npm create vite@latest
+? Project name: >> client-pagination
+? Select a framework: >>
+  React
+? Select a variant: JavaScript
+
+arvanstorage.com/theme.min.css <----------- **
+--------------------
+usePaginatedFetch.jsx
+---------------------
+...
+import { chunk } from "lodash";
+
+const usePaginatedFetch = (URL, perPage) => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    const paginatedData = chunk(data, perPage);
+    setData(paginatedData);
+    setLoading(false);
+  }
+
+  useEffec(() => {
+    getData()
+  }, [])
+
+  return [loading, data];
+}
+
+export default usePaginatedFetch;
+--------------
+npm install lodash
+...
+import _ from "lodash"; 
+
+_.chunk(arr, 3);
+-------------------
+
+App.jsx
+-------
+const URL = "URL";
+
+function App() {
+  const [loading, data] = usePaginatedFetch(URL, PER_PAGE);
+  const [page, setPage] = useState(1);
+  const [programmers, setProgrammers] = useState([]);
+  
+  useEffect(() => {
+    if(loading) return; // <----------- There isn't any data.
+    setProgrammers(data[page - 1]);
+  }, [loading]);
+
+  ...
+  <Pagination pages={data.length} setPage={setPage} activePage={page} />
+}
+------------------------
+pagination.jsx
+--------------
+const Pagination = ({ pages, setPage, activePage }) => {
+  ...
+  {
+    times(pages, (index) => {
+      <li className={`${ index + 1 == activePage > "active" : "" }`}>{ index + 1 }</li>
+    })
+  } 
+}

@@ -1,0 +1,120 @@
+.item-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 18rem;
+  height: 18rem;
+  overflow: hidden;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  padding: 0;
+  transition: all linear 0.2s;
+  -webkit-transition: all linear 0.2s;
+  -moz-transition: all linear 0.2s;
+  -ms-transition: all linear 0.2s;
+  -o-transition: all linear 0.2s;
+  opacity: 0;
+}
+
+.item-wrapper:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+
+.item-wrapper .item-content {
+  padding: 0.25rem;
+}
+
+.item-wrapper .item-content p {
+  font-size: small;
+  text-align: justify;
+}
+
+.item-wrapper .item-img {
+  height: 10rem;
+  animation: loading 1s linear infinite alternate;
+  -webkit-animation: loading 1s linear infinite alternate;
+}
+
+.item-wrapper .item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.item-wrapper .item-price {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.2rem;
+  color: white;
+  background-color: var(--red, #d90007);
+  font-size: x-small;
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+
+.item-wrapper .item-btn {
+  margin-top: auto;
+  padding: 0.25rem 0.5rem;
+  background-color: white;
+  color: var(--red, #d90007);
+  border: 1px solid var(--red, #d90007);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5rem;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+}
+
+.item-wrapper .item-btn:hover {
+  background-color: var(--red, #d90007);
+  color: white;
+}
+
+@keyframes loading {
+  from {
+    background-color: #e5e4e2;
+  }
+
+  to {
+    background-color: #d3d3d3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .item-wrapper {
+    max-width: 16rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .item-wrapper {
+    max-width: 14rem;
+  }
+
+  .item-wrapper .item-content h5 {
+    font-size: small;
+  }
+
+  .item-wrapper .item-content p {
+    font-size: x-small;
+  }
+}

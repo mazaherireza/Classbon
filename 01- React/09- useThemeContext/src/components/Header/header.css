@@ -1,0 +1,44 @@
+.bg-dark {
+  background-color: black;
+  color: white;
+}
+
+.bg-light {
+  background-color: light;
+  color: black;
+}
+
+.header-wrapper nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-wrapper ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.header-wrapper button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 425px) {
+  .header-wrapper ul {
+    font-size: small;
+  }
+
+  .header-wrapper button {
+    font-size: x-small;
+  }
+}

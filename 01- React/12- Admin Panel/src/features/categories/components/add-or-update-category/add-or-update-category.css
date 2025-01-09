@@ -1,0 +1,33 @@
+.add-or-update-category-wrapper {
+  background-color: #c0c0c0;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.add-or-update-category-wrapper label {
+  display: block;
+}
+
+.add-or-update-category-wrapper input {
+  width: 80%;
+  padding: 0.25rem 0.5rem;
+}
+
+.add-or-update-category-wrapper .actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 425px) {
+  .add-or-update-category-wrapper input {
+    width: 90%;
+  }
+}

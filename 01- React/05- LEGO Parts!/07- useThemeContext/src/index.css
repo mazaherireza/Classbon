@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "IranYekan";
+  src: local("IranYekan"), url("/fonts/IranYekan.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter") url("/fonts/Inter.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary: #d90007;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.container {
+  padding: 2rem 4rem;
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    padding: 1rem 2rem;
+  }
+}

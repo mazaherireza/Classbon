@@ -1,0 +1,14 @@
+useReducer <--------------- Complex state(s) or many dependent states
+
+React Impossible States <------------ **
+-----------------------
+...
+Technically, all the states related to the asynchronous data belong together,
+which doesn't only include the stories as actual data, but also their loading and error states.
+...
+
+"Making Impossible States Impossible"
+...
+const [activeTab, setActiveTab] = useState(tabs[0]);
+const [restOfTabs, setRestOfTabs] = useState(tabs.slice(1));
+...

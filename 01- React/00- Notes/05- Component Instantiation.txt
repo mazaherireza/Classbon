@@ -1,0 +1,19 @@
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  
+  getName() {
+   return `${this.firstName} ${this.lastName}`
+  }
+}
+
+const me = new Person("Reza", "Mazaheri");
+console.log(me.getName())
+
+function Comp() {}
+
+<Comp />
+<Comp />
+<Comp />

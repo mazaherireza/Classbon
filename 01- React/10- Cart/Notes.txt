@@ -1,0 +1,74 @@
+Context API, useReducer <----------- **
+... global states, ... updates ...
+
+context.jsx
+-----------
+import { createContext } from "react";
+import cartItems from "./data";
+
+const CartContext = createContext();
+
+const initialState = {
+  loading: false,
+  cart: cartItems,
+  total: 0,
+  amount: 0
+}
+
+const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <CartContext.Provider value={{ ...state }}>{children}</CartContext.Provider>
+  )
+}
+
+const useCartContext = () => {
+  return useContext(CartContext)
+}
+
+export { CartProvider, useCartContext }
+-----------------------------------------------------
+main.jsx
+--------
+...
+ReactDOM.creatRoot(...).render(
+  <CartProvider>
+    <App />
+  </CartProvider>
+)
+-----------------
+... Refresh ... Reset application
+
+reducer.js
+----------
+const reducer = (state, action) => {
+  const { type, payload } = action;
+  switch(type) {
+    case "CLEAR_CART":
+      return {...state, cart: [] }
+    case "REMOVE": {
+      return {...state, cart: state.cart.filter(item => item.id !== payload) }
+    }
+    case "CHANGE_QUANTITY": {
+      const tempCart = state.cart.map(item => {
+        if(item.id == payload.id && payload.quantity > 0) 
+          return { ...item, quantity: payload.quantity }
+        return item
+      })
+    }
+  }
+}
+
+export default reducer;
+------------------------
+cartItem.jsx
+-----------
+...
+<input type="number" onChange={event => changeQunatity({id, qunatity: +event.target.value })} ... <------ ***
+
+context.jsx
+-----------
+...
+useEffect(() => {
+  dispatch({type: "GET_TOTAL"})
+}, [state.cart])

@@ -1,0 +1,27 @@
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-wrapper ul {
+  min-width: max-content;
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+}
+
+.pagination-wrapper ul li {
+  font-size: small;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pagination-wrapper ul li:hover {
+  color: var(--primary);
+}
+
+.pagination-wrapper .highlight {
+  border-bottom: 1px solid var(--primary);
+}

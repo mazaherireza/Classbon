@@ -1,0 +1,88 @@
+04- Routing <--------- **
+
+... main domain ... 
+domain/products
+
+... state, conditional rendering <-------- X
+
+... multi pages, ... changable URL.
+
+Route: domain/login
+Route: domain/register
+... Refresh <--------- X
+
+React <----- Library
+
+React Router DOM
+
+V6.4+ <------------ **
+
+npm install react-router-dom
+
+src/router.jsx
+
+router.jsx
+----------
+import { createBrowserRouter } from "react-router-dom";
+import Login from "features/identity/login/Login";
+
+const router = createBrowserRouter([
+  {
+     path: "login",
+     element: <Login />
+  }  
+  ...
+]);
+
+export default router;
+-----------------
+App.jsx
+-------
+import { RouteProvider } from "reac-router-dom";
+import router from "./router";
+...
+
+function App() {
+  return(
+    <RouterProvider router={router} />
+  )
+}
+
+Layout <------------- Constant
+
+React router DOM ... layout
+
+layouts/identity-layout.jsx
+
+identity-layout.jsx
+-------------------
+import { Outlet } from "react-router-dom";
+
+...
+  <img src={Logo} alt="Logo" className="logo" />
+  <Outlet />
+...
+export default IdentityLayout;
+--------------
+router.jsx
+----------
+const router = createBrowserRouter([
+  {
+    element: <IdentityLayout />, <------------ Wrapper, path <------------ X
+    children: [
+      {
+        path: "login",
+        element: <Login />
+      }
+      ...
+    ]
+  }
+])
+
+refresh <------------ Resets State <------- **
+
+import { Link } from "react-router-dom";
+...
+<Link to="/register"></Link>
+
+Link <---- a tag ... event.preventDefault

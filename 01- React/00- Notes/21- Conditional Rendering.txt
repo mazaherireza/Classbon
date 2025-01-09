@@ -1,0 +1,42 @@
+Conditional Rendering
+---------------------
+App.jsx
+-------
+...
+const [isLoading, setIsLoading] = useState(false);
+...
+useEffect(() => {
+  setIsLoading(true); <------------- **
+  getAsyncMovies().then(result => {
+    ...
+    setIsLoading(false); <--------------- **
+  })
+)
+...
+{
+  if (isLoading) {
+    <p>Loading ...</p>
+  }
+}
+
+{
+  isLoading ? <p className="loading">Loading...</p> : <List ... /> <---------- 2 JSX
+}
+
+const [isError, setIsError] = useState(false);
+...
+new Promise((resolve, reject) => {
+  ...
+  setTimeout(() => {
+    reject("Error");
+  }, 2000)
+})
+
+useEffect(() => {
+  ...
+  getAsyncMovies().then().catch(error => setIsError(true))
+})
+
+true && { prenom: "Reza" } ------------> { prenom: "Reza" }
+... 
+isError && <p className="error">Error, try again.</p>

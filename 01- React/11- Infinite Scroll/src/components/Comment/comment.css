@@ -1,0 +1,45 @@
+.comment-wrapper {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.comment-wrapper .img-wrapper {
+  width: 5rem;
+  height: 5rem;
+}
+
+.comment-wrapper .img-wrapper img {
+  width: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.comment-wrapper .name {
+  text-align: center;
+}
+
+.comment-wrapper .name,
+.comment-wrapper .description {
+  font-size: small;
+}
+
+.comment-wrapper .date {
+  margin-top: 0.5rem;
+  font-size: x-small;
+}
+
+@media screen and (max-width: 425px) {
+  .comment-wrapper .img-wrapper {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .comment-wrapper .name,
+  .comment-wrapper .description {
+    font-size: x-small;
+  }
+}

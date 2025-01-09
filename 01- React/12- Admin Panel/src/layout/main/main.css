@@ -1,0 +1,17 @@
+.main-wrapper .container {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  gap: 2rem;
+}
+
+.main-wrapper .main {
+  display: grid;
+  grid-template-rows: 12fr 1fr;
+}
+
+@media screen and (max-width: 768px) {
+  .main-wrapper .container {
+    grid-template-columns: 1fr 5fr;
+  }
+}

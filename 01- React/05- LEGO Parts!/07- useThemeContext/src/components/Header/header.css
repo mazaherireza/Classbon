@@ -1,0 +1,24 @@
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header button {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 425px) {
+  header {
+    font-size: small;
+  }
+
+  header button {
+    font-size: x-small;
+  }
+}

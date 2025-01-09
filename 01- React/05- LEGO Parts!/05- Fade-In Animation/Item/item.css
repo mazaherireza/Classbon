@@ -1,0 +1,9 @@
+.item-wrapper {
+  width: 18rem;
+  height: 18rem;
+  overflow: hidden;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  padding: 0;
+  opacity: 0; /* <----------- */
+}

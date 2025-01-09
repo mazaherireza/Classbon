@@ -1,0 +1,8 @@
+Single Responsibility Principle (SRP):
+A class should have one, and only one reason to change.
+
+Component Tree
+App <------------- Root Component
+... Entry point
+
+Component render ----------> Sub component"S" render **

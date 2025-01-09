@@ -1,0 +1,38 @@
+State
+re-rendering <-------------- **
+JSX Update <----------------- **
+
+Detect <---------- X
+
+const Search = () => {
+  let searchTerm = "";
+  const handleChange = ({ target }) => {
+    searchTerm = target.value;
+  }
+  return (
+    <div>
+      <label htmlFor="search">Search</label>
+      <input onChange={handleChange} type="text" id="search" />
+      <p>Searching for <strong>{searchTerm}</strong> ...
+  )
+}
+
+const [searchTerm, setSearchTerm] = useState("");
+setSearchTerm <------------ Updater function, Change function
+
+const handleChange = ({ target }) => {
+  setSearchTerm(target.value)
+}
+
+re-render Search component and its sub components <------------ ** 
+
+main.jsx
+--------
+...
+<React.StrictMode> <------------ Inactive in Production Mode
+
+npm run build
+npm run preview
+
+useState hook
+Closures <--------- **

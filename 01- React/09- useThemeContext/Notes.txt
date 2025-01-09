@@ -1,0 +1,92 @@
+Context API
+-----------
+... Seprate files for themes <---------- *
+
+3 Steps
+1. ... Context
+2. ... Provider
+3. ... Consumers
+
+app-context.jsx
+---------------
+import { createContext, useState } from "react";
+
+const AppContext = createContext(); <------------- 1
+
+const AppProvider = ({ children }) => { <------------- 2 ... component
+  const [globalState, setGlobalState] = useState(); 
+  return (
+    <AppContext.Provider value={{ globalState, setGlobalState }}>
+      { children } <----------- **
+    </AppContext.Provider>
+  )
+}
+
+export { AppContext, AppProvider };
+
+main.jsx
+--------
+...
+import { AppProvdier } from "./app-context";
+
+ReactDOM.createRoot(document. ...).render(
+  <AppProvider>
+    <App />
+  </AppProvider>
+)
+
+App.jsx
+-------
+import { useContext } from "react";
+import { AppContext } from "./app-context";
+...
+
+const Comp = () => {
+  const { state } = useContext(AppContext);
+  return <h1>{state}</h1>
+}
+
+function App() {
+  const { globalState, setGlobalState } = useContext(AppContext);
+  setGlobalState("TEST");
+  <Comp></Comp>
+}
+---------------------
+context.jsx
+-----------
+import { createContext, useState, useContext } from "react";
+
+const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(false);
+  reutrn <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+    { children } <---------- Root of component tree
+  </ThemeContext.Provider>
+}
+
+export const useThemeContext = () => {
+  return useContext(ThemeContext);
+}
+ -------------
+header.jsx
+----------
+const Header = () => {
+  const { darkMode, setDarkMode } = useThemeContext(); <------ Subscription to Provider
+
+  const changeTheme = () => { setDarkMode(!darkMode) }
+
+  return (<header className={`${ darkMode ? "bg-dark" : "bg-light"}`}>
+    <button onClick={changeTheme}>
+      {
+        darkMode ? "Light" : "Dark"
+      }
+    </button>
+  </header>);
+}
+----------------
+index.js
+--------
+<ThemeProvider>
+  <App/>
+</ThemeProvider>

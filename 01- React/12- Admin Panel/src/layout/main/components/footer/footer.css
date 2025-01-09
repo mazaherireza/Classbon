@@ -1,0 +1,6 @@
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--primary);
+}

@@ -1,0 +1,32 @@
+import axios from "axios";
+
+axios.defaults.baseURL = "https://";
+
+function App() {
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async() => {
+    try {
+      const { data } = await axios.get("/END_POINT");
+      setResponse(data);
+    } catch(error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchData() 
+  }, [])
+
+  return(
+   <div>
+     {
+       laoding ? <Loading /> : respnse.map(...)
+     }
+   </div>
+  )
+}

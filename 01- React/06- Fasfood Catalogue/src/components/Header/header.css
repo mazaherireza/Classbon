@@ -1,0 +1,40 @@
+.header-wrapper {
+  height: 10rem;
+  background-image: url("../assets/images/Header-Background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: sticky;
+  top: 0;
+  z-index: 8;
+}
+
+.header-wrapper .title {
+  font-family: Inner;
+  text-transform: uppercase;
+  color: white;
+  position: absolute;
+  left: 12rem;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+@media screen and (max-width: 768px) {
+  .header-wrapper .title {
+    left: 4rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header-wrapper {
+    height: 6rem;
+  }
+
+  .header-wrapper .title {
+    font-size: large;
+    left: 2rem;
+  }
+}

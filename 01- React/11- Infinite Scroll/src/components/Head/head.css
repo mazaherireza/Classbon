@@ -1,0 +1,38 @@
+.head-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.head-wrapper img {
+  width: 20rem;
+}
+
+.head-wrapper .info p {
+  font-size: small;
+}
+
+.head-wrapper .info .price {
+  margin-top: 0.5rem;
+  min-width: 8rem;
+  max-width: 12rem;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  background-color: #c0c0c0;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 425px) {
+  .head-wrapper {
+    flex-direction: column;
+  }
+
+  .head-wrapper img {
+    width: 15rem;
+  }
+}

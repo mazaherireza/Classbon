@@ -1,0 +1,18 @@
+main.jsx <-------------- START **
+
+index.html
+----------
+<div id="root"></div>
+...
+
+main.jsx
+--------
+...
+import ReactDOM from "react-dom/client"; <------------ *
+ReactDOM ... connect React with HTML
+...
+ReactDOM.createRoot(document.getElementById("root")).render( <--------- JSX
+  <React.StrictMode>
+    <App /> <---------------------- Instantiate **
+  </React.StrictMode>
+)

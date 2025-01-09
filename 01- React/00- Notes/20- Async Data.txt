@@ -1,0 +1,35 @@
+Asynchronous Data <---------- **
+
+Promise <------------- *
+-------
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Resolved.");  
+  }, 1000)
+})
+
+promise.then(result => {
+  console.log(result)
+},
+  error => {
+    console.error(error)
+  }
+)
+
+App.jsx
+-------
+...
+const [movies, setMovies] = useState([]);
+
+const getAsyncMovies = () => 
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ data: { movies: initialMovies } });
+    }, 2000)
+  })
+
+useEffect(() => {
+  getAsyncMovies().then(result => {
+    setMovies(result.data.movies);
+  })
+}, []);

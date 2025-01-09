@@ -1,0 +1,34 @@
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18rem;
+  height: 18rem;
+  overflow: hidden;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  padding: 0;
+}
+
+.item-wrapper .item-img {
+  height: 10rem;
+  animation: change-color 1s linear infinite alternate;
+  -webkit-animation: change-color 1s linear infinite alternate;
+}
+
+.item-wrapper .item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes change-color {
+  from {
+    background-color: #e5e4e2;
+  }
+
+  to {
+    background-color: #d3d3d3;
+  }
+}

@@ -1,0 +1,16 @@
+nodejs.org <---------- **
+
+Command Prompt
+Or
+Windows terminal
+
+node --version
+v20.17.0
+
+npm --version
+v10.8.2
+
+IDE
+code.visualstudio.com <-------------- *
+
+Top VS Code extensions for React <------------ Key Search

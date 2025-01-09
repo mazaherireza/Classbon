@@ -1,0 +1,9 @@
+.not-found-wrapper h3 {
+  color: var(--red, #d90007);
+}
+
+.not-found-wrapper .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

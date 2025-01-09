@@ -1,0 +1,16 @@
+#root {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.loading,
+.error {
+  margin-top: 0.2rem;
+  font-size: small;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+}

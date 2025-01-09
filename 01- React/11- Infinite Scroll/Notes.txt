@@ -1,0 +1,76 @@
+Batch State Update
+Callback Ref <---------------- **
+...
+
+Batch State Update
+17+
+
+App.jsx
+-------
+...
+function App() {
+  const [name, setName] = useState();
+  const updateState = () => {
+    setName("Reza");
+    setName("Maryam");
+    setName("Yousef");
+  }
+  ...
+  <button onClick={updateState}> ...
+}
+... performance ... batching 
+
+React Developer Tools extension <--------------- *
+
+Profiler
+--------
+Setting
+
+Record why each component rendered while profiling.
+Reload and Start
+
+Profiling is in progress...
+Click the record button to stop recording.
+
+Intersection Observer API <------------- **
+-------------------------
+const observer = new IntersectionObserver(entries => {
+  const boxElm = entries[0];
+  const isIntersecting = boxElm.isIntersecting;
+  boxElm.target.style.backgroundColor = isInteresting ? "blue" : "red";
+}, { threshold: 1 })
+
+observer.observe($.getElementById("box")) <---------- **
+...
+
+{
+  rootMargin: "0px",
+  threshold: 1.0,
+}
+--------------------------------------
+const [lastElement, setLastElement] = useState(null);
+const [page, setPage] = useState(1);
+...
+
+const observerRef = new IntersectionObserver([entry] => {
+  if(entry.isIntersecting) {
+    setPage(currentPage => currentPage + 1)
+  }
+})
+
+useEffect(() => {
+  fetchData()
+}, [page]);
+
+useEffect(() => {
+  if(lastElement)
+    observeRef.observe(lastElement)
+  return() => {
+    if(lastElement)
+      observerRef.unobserve(lastElement);
+  }
+})
+
+<div key={comment.id} ref={setLastElement}> <------- Callback Ref **
+  <Comment {...comment} />
+</div>

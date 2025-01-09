@@ -1,0 +1,47 @@
+Server Side Pagination
+----------------------
+... Large datas, ... BandWidth ... Loading
+
+/Programmer/sieve <-------- End point
+
+POST <----- Send information for filtering.
+
+GET, ... Query strings
+POST, ... Body
+
+JSON
+----
+{
+  "page": 2,
+  "pageSize": 3
+}
+---------
+Preview: 
+{
+  "totalRecords": 12,
+  "data": [ <----------- Programmers
+     {
+       "id": 8,
+       ...
+      }
+   ]
+
+useFetch.jsx
+------------
+...
+const useFetch = (url, sieve) => {
+  ...
+  const getData = async () => {
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json;charset-UTF-8"
+      },
+      method: "POST",
+      body: JSON.stringify(sieve) <-------- Serielize object
+    })
+  }
+  ...
+  useEffect(() => {
+    fetchData();
+  }, [sieve.page]);
+}

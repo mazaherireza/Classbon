@@ -1,0 +1,23 @@
+.courses-wrapper button {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.courses-wrapper .grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .courses-wrapper .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

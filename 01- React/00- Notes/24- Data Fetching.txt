@@ -1,0 +1,12 @@
+Data Fetching
+-------------
+https://react-mini-projects-api.classbon.com
+/Story/list <--------- API Endpoint
+
+Client side search
+...
+Filter ... query string
+
+useEffect(() => {
+  if(!keySearch) return <------------ null, undefind, empty string
+}, [keySearch])

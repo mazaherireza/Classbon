@@ -1,0 +1,11 @@
+Reusable Components
+-------------------
+...
+const InputWithLabel = ({_id, label, value, onInputChange, type="text"}) => {
+  const handleChange = (event) => onInputChange(event)
+  return(
+   <> 
+     <label htmlFor={_id}>{label}</label>
+     <input onChange={handleChange} type={type} id={_id} value={value} />
+   </>
+  )

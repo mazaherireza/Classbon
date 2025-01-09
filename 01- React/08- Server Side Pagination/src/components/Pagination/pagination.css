@@ -1,0 +1,20 @@
+.pagination-wrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style-type: none;
+}
+
+.pagination-wrapper .page-item {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: small;
+  cursor: pointer;
+}
+
+.pagination-wrapper .active {
+  color: red;
+}

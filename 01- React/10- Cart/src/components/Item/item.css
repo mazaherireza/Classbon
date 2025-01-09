@@ -1,0 +1,81 @@
+.item-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.item-wrapper .item-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.item-wrapper .item-info img {
+  width: 6rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+
+.item-wrapper .item-info .title {
+  font-size: small;
+}
+
+.item-wrapper .item-info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-wrapper .item-info .price {
+  font-size: x-small;
+  font-weight: bold;
+}
+
+.item-wrapper .item-action {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-wrapper .item-action label {
+  font-size: x-small;
+}
+
+.item-wrapper input[type="number"] {
+  font-family: IranYekan;
+  direction: rtl;
+  width: 5rem;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+
+.item-wrapper button {
+  margin-top: 0.5rem;
+  background-color: white;
+  color: red;
+  font-size: small;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 425px) {
+  .item-wrapper .item-info {
+    flex-direction: column;
+  }
+
+  .item-wrapper .item-info .title {
+    font-size: x-small;
+  }
+
+  .item-wrapper .item-info .price {
+    margin-top: 0.25rem;
+  }
+}

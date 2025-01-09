@@ -1,0 +1,44 @@
+WT <--------- Windows Terminal ... Microsoft
+------------------------------
+Feature Based Pattern <----------- **
+---------------------
+Feature based folder structure
+
+src
+  assets
+  components <--------- Base Components like Btn, Spinner, ...
+  contexts 
+  core <----------- Main Services like HTTPService, ... Fetch API, Axios ... global
+  features
+
+Features <-------------- ***
+categories, courses, identity
+
+... Identity, Register and Login
+
+layouts <--------- *
+pages <--------- * route ... page
+
+... identity <---------- Related to account
+
+features/identity/components
+login.jsx
+register.jsx
+-----------------------
+import logo from "../../../assets/images/logo.svg"; 
+
+Alias <-------- 
+
+vite.config.js <------------- **
+--------------
+...
+import path from "path";
+
+export default defineConfig({ <----------- **
+  resolve: { <--------- **
+    alias: {
+      "@assets": path.resolve(__dirname, "./src/assets")
+    }
+  },
+  plugins: [react()],
+})

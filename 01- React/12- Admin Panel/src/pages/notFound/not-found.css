@@ -1,0 +1,8 @@
+.not-found-wrapper {
+  text-align: center;
+}
+
+.not-found-wrapper h2,
+.not-found-wrapper a {
+  color: var(--primary);
+}

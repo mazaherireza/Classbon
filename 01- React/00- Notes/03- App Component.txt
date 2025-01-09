@@ -1,0 +1,38 @@
+App.jsx
+-------
+const title = "React";
+function App() { <--------- App Component ... function component
+...
+export default App;
+4)-------------------------------------------
+JSX stands for JavaScript XML.
+
+App.jsx
+-------
+const title = "React";
+function App() {
+  return(
+  <div>
+    <h1>Hello {title}!</h1>
+  </div>
+)
+}
+
+... development server ... Web browser
+
+React Fast Refresh <------------ **
+(In React Side)
+
+Hot Module Replacement <---------- **
+(In Development Server Side)
+
+<label htmlFor="search">Search</label>
+<input type="text" id="search" />
+
+JSX Attributes:
+className <--------- class
+onClick <-------- onclick
+
+JSX <------ Extension of JavaScript
+
+[component].jsx is recommended

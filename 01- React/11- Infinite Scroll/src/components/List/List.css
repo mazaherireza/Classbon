@@ -1,0 +1,12 @@
+.list-wrapper {
+  margin-top: 1rem;
+}
+
+.list-wrapper .loading {
+  margin-top: 0.5rem;
+  direction: ltr;
+  text-align: center;
+  font-family: Inter;
+  font-size: small;
+  font-weight: bold;
+}

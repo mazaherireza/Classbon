@@ -1,0 +1,63 @@
+reducer in JS
+
+state, action
+(state, action) => newState; <------------ *
+
+const action = {
+  type: "INC",
+}
+
+... counter is a state <---------- **
+
+const counterReducer = (counter, { type }) => {
+  switch(type) {
+    case "INC":
+      return counter + 1;
+    case "DEC":
+      return counter - 1;
+    default:
+      return counter;
+  }
+}
+
+const result = counterReducer(1001, action);
+...
+return { ...state, count: state.count - 1 }; <---------------- *
+
+1. state <----------- Must be immutable
+reducer function has to return a NEW state object. <------------ **
+
+2. use spread operator ...
+----------
+const action = {
+  type: "INC",
+  payload: 1001 <-------- Optional
+}
+...
+const counterReducer = (state, { type, payoad }) => {
+  ...
+  return {...state, count: state.count + payload }
+}
+
+... reducer function ... state A ---> B
+------------
+reducer in JS ... in React ... useReducer hook
+
+App.jsx
+-------
+const moviesReducer = (state, { type, payload }) => {
+  switch(type) {
+    case "SET_MOVIES":
+      return payload;
+    default:
+      return state;
+  }
+}
+
+functin App() {
+...
+const [movies, dispatchMovies] = useReducer(moviesReducer, []); <----------- **
+...
+dispatchMovies({ type: "SET_MOVIES", payload: movies })
+
+dispatch function <----------- re-render

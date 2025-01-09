@@ -1,0 +1,18 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.list-item .list-item-delete {
+  font-size: xx-small;
+  padding: 0.2rem;
+  color: red;
+  border: 1px solid red;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}

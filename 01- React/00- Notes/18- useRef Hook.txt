@@ -1,0 +1,25 @@
+Imperative React 
+Imperative <-------------- X
+
+Declarative
+
+InputWithLabel.jsx
+------------------
+...
+<input ... autoFocus={isFocused}>
+
+App.jsx
+-------
+...
+<InputWithLabel ... isFocused> (Or isFocused="true")
+...
+InputWithLabel.jsx
+------------------
+const inputRef = useRef(); <------------- **
+...
+useEffect(() => {
+  if(isFocused && inputRef.current)
+    inputRef.current.focus(); <------------------ **
+}, [isFocused])
+...
+<input ref={inputRef} /> <---------------- **

@@ -1,0 +1,26 @@
+Custom Hooks
+------------
+... like components
+Components return JSX, custom hooks return an array (or an object) of values <----------- **
+
+hooks/useStorageState.jsx
+
+useStorageState.jsx
+-------------------
+import { useState, useEffect } from "react";
+
+const useStorageState = (key, initialState) => {
+  const [value, setValue] = useState(localStorage.getItem(key) || initialState);
+
+  useEffect(() => {
+    localStorage.setItem(key, value);
+  }, [key, value]);
+
+  return [value, setValue];
+}
+
+export default useStorageState;
+
+App.jsx
+-------
+const [searchTerm, setSearchTerm] = useStorageState("searchTerm", "");

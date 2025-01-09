@@ -1,0 +1,8 @@
+.unhandled-exception-wrapper {
+    text-align: center;
+  }
+  
+  .unhandled-exception-wrapper h2,
+  .unhandled-exception-wrapper a {
+    color: var(--primary);
+  }

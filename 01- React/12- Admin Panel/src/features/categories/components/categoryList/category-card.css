@@ -1,0 +1,28 @@
+.category-card-wrapper {
+  background-color: #e5e4e2;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.category-card-wrapper .name {
+  font-family: Inter;
+  font-size: small;
+  font-weight: bold;
+}
+
+.category-card-wrapper .actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.category-card-wrapper button {
+  font-size: x-small;
+}

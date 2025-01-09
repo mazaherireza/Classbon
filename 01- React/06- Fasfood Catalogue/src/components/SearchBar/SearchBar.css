@@ -1,0 +1,14 @@
+.search-bar-wrapper input[type="text"] {
+  padding: 0.25rem 0.5rem;
+  max-width: 25rem;
+  min-width: 20rem;
+}
+
+@media screen and (max-width: 425px) {
+  .search-bar-wrapper input[type="text"] {
+    padding: 0.125rem 0.25rem;
+    max-width: 15rem;
+    min-width: 12rem;
+    font-size: x-small;
+  }
+}

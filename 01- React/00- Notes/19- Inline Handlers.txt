@@ -1,0 +1,10 @@
+Inline Handlers <----------- **
+
+... Add or delete ... state 
+
+const initialState = [{ ... }];
+const [movies, setMovies] = useState(initialState);
+...
+const handleClick = (_id) => { ... }
+...
+<button onClick={() => handleClick(_id)}>

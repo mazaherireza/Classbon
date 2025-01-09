@@ -1,0 +1,52 @@
+05----------------------------------------
+... state, ref
+3rd party libraries
+
+React Hook Form <----------- **
+
+npm i react-hook-form
+
+1. Register input elements <--------- **
+
+register.jsx
+------------
+...
+import { useForm } from "react-hook-form";
+
+const Register = () => {
+  const { register, handleSubmit, watch, formState: { errors }} = useForm();
+  ...
+}
+
+const onSubmit = (data) => {
+  ...
+}
+
+... handleSubmit ... event.preventDefault()
+
+<form onSubmit={handleSubmit(onSubmit)}>
+  ...
+  <input {...register("mobile", {
+    required: "Mobile is mandetory", 
+    minLength: 11,
+    maxLength: 11
+  })} className={`... ${errors.mobile && "invalid"}`}>
+...
+... Custom Validations ...
+... watch ... form control ...
+
+<input 
+  {...register("confirmPassword", {
+    required: "This field is required.",
+    validate: value => {
+      if(watch("password") !== value) return "These are not the same." <------------ **
+    }
+  })}
+...
+
+{
+  errors.confirmPassword && errors.confirmPassword.type == "validate" && 
+  <p className="error-message">
+   { errors.confirmPassword?.message }
+  </p>
+}

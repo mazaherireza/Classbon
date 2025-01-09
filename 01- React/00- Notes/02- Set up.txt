@@ -1,0 +1,33 @@
+Set up ...
+Create React App <--------- X
+
+... development server ... Local + Bundler .... Production environment
+
+npm create vite@latest <-------------- **
+...
+...
+code .
+In VS Code 
+ctrl + `
+npm run dev
+
+public <---------- Static Assets, ... favourite icon 
+
+index.html
+----------
+...
+<script type="module" src="/src/main.jsx"></script>
+-----------------------------------------
+package.json
+------------
+...
+"scripts": { <--------------------- *
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+}
+...
+npm run ...
+npm run dev <------------- Local
+1. npm run build <--------- Production
+2. npm run preview
