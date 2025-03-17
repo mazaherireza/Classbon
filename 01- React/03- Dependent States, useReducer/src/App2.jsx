@@ -52,7 +52,7 @@ function App() {
     <div>
       <InputWithLabel
         label="Search Movie: "
-        _id="keySearch"
+        id="keySearch"
         value={keySearch}
         placeholder="Type to search"
         onInputChange={handleSearch}

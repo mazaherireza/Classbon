@@ -17,7 +17,8 @@ function App() {
     setKeySearch(val);
   };
 
-  const API_ENDPOINT = "https://react-mini-projects-api.classbon.com/Story/list";
+  const API_ENDPOINT =
+    "https://react-mini-projects-api.classbon.com/Story/list";
 
   useEffect(() => {
     if (!keySearch) return;
@@ -43,7 +44,7 @@ function App() {
     <div>
       <InputWithLabel
         label="Search Story: "
-        _id="keySearch"
+        id="keySearch"
         value={keySearch}
         placeholder="Type to search"
         onInputChange={handleSearch}
