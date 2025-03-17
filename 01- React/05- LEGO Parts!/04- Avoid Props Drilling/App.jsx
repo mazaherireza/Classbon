@@ -1,5 +1,6 @@
 import A from "./components/A/a";
 import Search from "./components/Search/Search";
+
 function App() {
   const searchAPI = () => {};
   return (
