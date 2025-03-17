@@ -1,5 +1,5 @@
 Lifting State <------------ ***
-------------------
+-------------
 Controlled Components <------------- **
 ...
 const $ = document;

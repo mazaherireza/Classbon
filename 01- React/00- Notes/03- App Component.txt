@@ -3,8 +3,10 @@ App.jsx
 const title = "React";
 function App() { <--------- App Component ... function component
 ...
+}
+
 export default App;
-4)-------------------------------------------
+----------------------------
 JSX stands for JavaScript XML.
 
 App.jsx
@@ -35,4 +37,4 @@ onClick <-------- onclick
 
 JSX <------ Extension of JavaScript
 
-[component].jsx is recommended
+[component].jsx is recommended.

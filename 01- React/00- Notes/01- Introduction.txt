@@ -1,8 +1,8 @@
-nodejs.org <---------- **
+nodejs.org <---------- *
 
 Command Prompt
 Or
-Windows terminal
+Windows Terminal
 
 node --version
 v20.17.0
