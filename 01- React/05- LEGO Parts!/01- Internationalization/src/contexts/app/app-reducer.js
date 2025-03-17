@@ -5,8 +5,8 @@ const appReducer = (state, action) => {
   switch (type) {
     case types.CHANGE_LANGUAGE:
       return {
-        ...state, 
-        language: payload
+        ...state,
+        language: payload,
       };
     default:
       return state;
