@@ -4,11 +4,11 @@ import List from "./components/List/list";
 import Pagination from "./components/Pagination/pagination";
 
 const baseURL = "https://react-mini-projects-api.classbon.com/Programmer/sieve";
-const pageSize = 3;
+const perPage = 3;
 
 function App() {
   const [page, setPage] = useState(1);
-  const [loading, programmers] = useFetch(baseURL, { page, pageSize });
+  const [loading, programmers] = useFetch(baseURL, { page, perPage });
 
   const renderContent = () => {
     if (loading) {
@@ -23,7 +23,7 @@ function App() {
       <div className="app-wrapper">
         {renderContent()}
         <Pagination
-          pages={Math.ceil(programmers.totalRecords / pageSize)}
+          pages={Math.ceil(programmers.totalRecords / perPage)}
           setPage={setPage}
           activePage={page}
         ></Pagination>
