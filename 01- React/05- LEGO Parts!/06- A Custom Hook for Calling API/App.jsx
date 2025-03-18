@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./components/header/Header";
 import CategoryList from "./components/CategoryList/categoryList";
 import List from "./components/List/list";

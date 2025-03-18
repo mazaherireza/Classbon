@@ -25,7 +25,7 @@ function App() {
   return(
    <div>
      {
-       laoding ? <Loading /> : respnse.map(...)
+       loading ? <Loading /> : response.map(...)
      }
    </div>
   )
