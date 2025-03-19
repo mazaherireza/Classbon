@@ -37,10 +37,10 @@ Intersection Observer API <------------- **
 const observer = new IntersectionObserver(entries => {
   const boxElm = entries[0];
   const isIntersecting = boxElm.isIntersecting;
-  boxElm.target.style.backgroundColor = isInteresting ? "blue" : "red";
+  boxElm.target.style.backgroundColor = isIntersecting ? "blue" : "red";
 }, { threshold: 1 })
 
-observer.observe($.getElementById("box")) <---------- **
+observer.observe($.getElementById("box")) <---------- ** entries array
 ...
 
 {

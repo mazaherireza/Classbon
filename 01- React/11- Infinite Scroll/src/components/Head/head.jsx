@@ -1,11 +1,11 @@
-import img from "../../assets/pizza.jpg";
+import img from "@/assets/pizza.jpg";
 import "./head.css";
-import { convertEnNumToFa } from "../../helpers/convertEnNumToFa";
+import { convertEnNumToFa } from "@/helpers/convertEnNumToFa";
 
 const PRICE = 158000;
 const Head = () => {
   return (
-    <div className="head-wrapper">
+    <div className="container head-wrapper">
       <img src={img} alt="Pizza"></img>
       <div className="info">
         <h3>پیتزا استیک (یک نفره)</h3>

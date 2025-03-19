@@ -1,5 +1,5 @@
 import "./comment.css";
-import { convertEnNumToFa } from "../../helpers/convertEnNumToFa";
+import { convertEnNumToFa } from "@/helpers/convertEnNumToFa";
 
 const Comment = ({ name, imageUrl, description, date }) => {
   return (
