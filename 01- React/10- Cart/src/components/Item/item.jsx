@@ -1,6 +1,6 @@
 import "./item.css";
-import { useCartContext } from "../../context";
-import { convertEnNumToFa } from "../../helpers/convertEnNumToFa";
+import { useCartContext } from "@/context";
+import { convertEnNumToFa } from "@/helpers/convertEnNumToFa";
 
 const Item = ({ id, title, price, img, quantity }) => {
   const { remove, changeQuantity } = useCartContext();

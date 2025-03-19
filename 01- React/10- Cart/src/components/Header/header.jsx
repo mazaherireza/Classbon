@@ -1,6 +1,6 @@
 import "./header.css";
-import { useCartContext } from "../../context";
-import { convertEnNumToFa } from "../../helpers/convertEnNumToFa";
+import { useCartContext } from "@/context";
+import { convertEnNumToFa } from "@/helpers/convertEnNumToFa";
 import { FiShoppingCart } from "react-icons/fi";
 
 const Header = () => {

@@ -1,7 +1,7 @@
 import "./cart.css";
 import List from "../List/list";
-import { useCartContext } from "../../context";
-import { convertEnNumToFa } from "../../helpers/convertEnNumToFa";
+import { useCartContext } from "@/context";
+import { convertEnNumToFa } from "@/helpers/convertEnNumToFa";
 
 const Cart = () => {
   const { cart, clearCart, total } = useCartContext();
