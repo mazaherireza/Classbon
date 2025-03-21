@@ -1,0 +1,39 @@
+... selectedLanguage .... globalState .... UI ... update 
+... language, theme, logged in user ... context API
+
+src/contexts <------------- **
+------------
+app
+  app-context.jsx
+  app-reducer.jsx
+
+app-context.jsx
+----------------
+import { createContext, useReducer } from "react";
+...
+const AppContext = createContext();
+
+const initialState = {
+  language: localStorage.getItem("language") || "fa" 
+}
+
+export const AppProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(appReducer, initialState);
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage(state.language);
+    localStorage.setItem("language", state.language);
+    document.dir = state.language == "fa" ? "rtl" : "ltr";
+  }, [state.language]);
+
+  const changeLanguage = (language) => {
+    dispatch({ type: types.CHANGE_LANGUAGE, payload: language });
+  };
+
+  return (
+    <AppContext.Provider value={{ ...state, changeLanguage }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
