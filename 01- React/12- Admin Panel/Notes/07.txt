@@ -1,0 +1,77 @@
+09---------------------------------------------------------------
+Change theme ... related to stylesheet.
+
+public/css
+          dark.css
+          light.css
+
+... state in appContext ...
+
+components/change-theme.jsx
+
+change-theme.jsx
+----------------
+...
+<button></button>
+
+export default ChangeTheme;
+
+layout.jsx
+-------------------
+...
+const Layout = () => {
+  ...
+  <ChangeTheme>
+  <ChangeLanguages />
+}
+
+app-context.jsx
+---------------
+...
+const initialState = {
+  language: localStorage.getItem("language") || "en",
+  theme: localStorage.getItem("theme") || "light",
+}
+
+const changeTheme = (theme) => {
+  dispatch({ type; "CHANGE_THEME", payload: theme})
+}
+...
+const AppProvider = ({ children }) => {
+  ...
+  changeTheme = (theme) => {
+    dispatch({ type: types.CHANGE_THEME, payload: theme)})
+  }
+
+  useEffect(() => {
+    localStorage.setItem("theme", state.theme) <----- ... add or update
+  }, [state.theme])
+}
+
+change-theme.jsx
+----------------
+import { useAppContext } from ...
+...
+  const { theme, changeTheme } = useAppContext();
+  const changeThemeHandler = () => {
+    changeTheme(theme == "light" ? "dark" : "light");
+  }
+
+  <button ... onClick={changeThemeHandler}>
+...
+
+App.jsx
+-------
+function App() {
+  const { theme } = useAppContext();
+  useEffect(() => {
+    const $ = document;
+    const head = $.head;
+    const link = $.createElement("link");
+    link.rel = "stylesheet";
+    link.href = `/css/${theme}.css`;
+    head.append(link);
+
+    return() => { head.removeChild(link) }
+  }, [theme])
+}
