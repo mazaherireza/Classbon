@@ -1,0 +1,13 @@
+13---------------------------
+...
+token ... localStorage ... APIs ... header ... 401
+
+Private (Guarded) Routes 
+...
+const MainLayout = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) navigate("/login");
+  }, []);
+...
