@@ -1,0 +1,152 @@
+06-------------------------------------
+Users
+[POST]/Users
+
+{ <--------------------------- Payload
+  "mobile": ...,
+  "password": ...
+}
+
+200
+------------
+npm i axios
+
+... token .... interceptor ...
+
+core/http-service.js
+
+http-service.js
+---------------
+import axios from "axios";
+
+const BASE_URL = "https://react-mini-projects-api.classbon.com";
+
+export const httpService = axios.create({
+  baseURL: BASE_URL,
+})
+
+Data Routing <------------ **
+React Router DOM v6.4+
+
+Data routing is the process of moving data between 2 locations,
+or nodes, using the most efficient pathway.
+
+router.jsx
+----------
+...
+const router = createBrowserRouter([
+  {
+    element: <IdentityLayout />,
+    children: [
+      {
+        path: "login", <------------ ** (Without /)
+        element: <Login />
+      },
+      {
+        path: "register", <------------ ** (Without /)
+        element: <Register />,
+        action: registerAction <------------ ** (function)
+      }
+    ]
+  }
+])
+
+register.jsx
+------------
+...
+export async function registerAction({ request }) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  const response = await httpService.post("/Users", data);
+  return response.status == 200; <-------- Whether it is successful or not.
+}
+
+form <------------ X
+Form 
+
+React Router DOM, ... 
+
+1) Automatic .... Form (from "react-router-dom")
+2) Manual
+
+register.jsx
+------------
+...
+import { useSubmit } from "react-router-dom"; <------------ **
+
+const submitForm = useSubmit(); <------------ **
+
+const onSubmit = (data) => {
+  const { confirmPassword, ...userData } = data;  
+  submitForm(userData, { method: "post" }) <--------- It is handled with React Router DOM **
+}
+
+router.jsx
+----------
+...
+import Register, { registerAction } from "./features/identity ..."
+
+register.jsx
+------------
+...
+const navigation = useNavigation();
+const isSubmitting = navigation.state !== "idle";
+...
+<button type="submit" disabled={isSubmitting}>
+  { isSubmitting ? "Loading" : "Register"}
+
+useNavigation
+-------------
+"navigation.state"
+
+1) idle- There is no navigation pending.
+2) submitting- A route action is being called due to a form submission using POST, PUT, PATCH, or DELETE. <------- **
+3) loading- The loaders for the next routes are being called to render.
+---------------
+"useActionData"
+This hook provides the returned value from the previous navigation's "action" result, 
+or "undefined" if there was no submission. 
+
+register.jsx
+------------
+...
+const isSuccessfulOperation = useActionData(); <----------- registerAction's returned value
+const navigate = useNavigate();
+
+useEffect(() => {
+  if(isSuccessfulOperation) {
+    setTimeout(() => {navigate("/login")}, 2000)
+  }
+}, [isSuccessfulOperaion])
+
+...
+{
+  isSuccessfulOperation && <p className="alert">Successful Operation, ...</p>
+}
+
+useRouteError
+-------------
+register.jsx
+------------
+...
+const routeError = useRouteError();
+...
+
+{ routeError && <p className="alert alert-error">{routeError?.message}</p> }
+
+router.jsx
+----------
+...
+const router = createBrowserRouter([
+  {
+    element: <IdentityLayout />,
+    children: [
+      {
+        path: "register",
+        element: <Register />,
+        action: registerAction,
+        errorElement: <Register /> <------------- **
+      }
+    ]
+  }
+])
