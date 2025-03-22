@@ -1,0 +1,63 @@
+18----------------------
+Pagination <---------------- **
+... query string
+
+Page
+(query)
+
+PageSize
+(query)
+
+Request URL
+/CourseCategory/sieve?Page=1&PageSize=10
+
+course-categories.jsx
+---------------------
+...
+export async function categoriesLoader = ({ request }) { <--------- **
+  return defer({
+    categories: loadCategories(request)
+  })
+}
+
+const loadCategories = async (request) => {
+  const page = new URL(request.url).searchParams.get("page") || 1; <------------ **
+  const PER_PAGE = 10;
+  const response = await httpInterceptedService.get(`/CourseCategory/sieve?page=${page}&pageSize=${pageSize}`);
+  return response.data;
+}
+
+pagination.jsx <--------- In shared components
+--------------
+import { useSearchParams } from "react-router-dom";
+
+const Pagination = ({ totalRecords, perPage = 10 }) => {
+  const pages = Math.ceil(totalRecords / perPage);
+  const [searchParams, setSearchParams] = useSearchParams(); <----- ... query params
+ 
+  const currentPage = +searchParams.get("page") || 1;
+  const prevPage = () => {
+    if (currentPage > 1) setSearchParams({ page: currentPage - 1 });
+    else setSearchParams({ page: pages });
+  };
+  ...
+}
+
+... click ... pagination ... update URL ...
+
+/components/spinner.jsx
+
+spinner.jsx
+-----------
+const Spinner = ({ theme = "info"}) => {
+  ...
+}
+
+category-list.jsx
+-----------------
+...
+const navigation = useNavigation()
+...
+  { navigation.state !== "idel" && <Spinner /> }
+  <table className="table table-striped">
+    ...
