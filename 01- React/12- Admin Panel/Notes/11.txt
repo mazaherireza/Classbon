@@ -1,0 +1,130 @@
+14-----------------------------------
+... fetching data with "data router" feature. <---------------- ***
+... making it easier to fetch data into pages and handle data submissions through forms.
+
+Course 
+[GET]/Course/list <--------- **
+
+... all APIs except Login and Register ...
+
+Response
+--------
+curl -X "GET" \
+ "https://..."
+-----------
+Request URL
+https...
+
+Server Response
+---------------
+Code         Details
+401          Error: response status is 401
+...
+
+... token ... Valid User 
+
+Insomnia or Postman 
+-------------------
+... HTTP Request
+... Curl Address ... Curl ---> API  [Send] ... 401 Unauthorized
+
+Body | Auth | Query | [Headers] | Docs
+...
+accept     text/plain
+Header     Bearer(Space)Token <----------- Paste token here (Copy Token from localStorage)
+
+Headers Tag
+............
+accept                text/plain
+Authorization         Bearer eyikhsuyousefoplinhyyousefmjrewxz...
+
+[Send]       200 OK
+-------------------------------------------
+... header of HTTP request ... axios
+
+Interceptor ... layer 
+
+               HTTP Request                       HTTP Request 
+            ------------------->              --------------------->   
+Application                      Interceptor                           Server
+               HTTP Response                      HTTP Response
+            <------------------               <---------------------
+
+Interceptor <---------- We can manipulate data here. ***
+
+
+Axios ... interceptors ... built-in and in instance level.
+core/http-service.js
+---------------------
+import axios from "axois";
+
+const BASE_URL = "";
+
+export const httpService = axios.create({ <---------- Can be used for login and register 
+  baseURL: BASE_URL,
+})
+
+export const httpInterceptedService = axios.create({
+  baseURL: BASE_URL
+})
+
+... interceptors ... request and response ...
+
+httpInterceptedService.interceptors.request.use(
+  async (config) => {
+    const token = localStorage.getItem("token");
+    if (token)
+      config.headers = {
+        Authorization: `Bearer ${token}`,
+      };
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+* Bearer:  a person who brings a message
+------------------------
+loader in react-router-dom <---------- **
+
+router.jsx
+----------
+...
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [{
+      element: <Course />,
+      index: true,
+      loader: coursesLoader <-------- Fetch Data
+    }]
+  }
+])
+
+courses.jsx
+----------- 
+import { httpInterceptedService } from "@core/http-service";
+
+const Courses = () => {
+  return()
+}
+
+export const coursesLoader = async () => { <----- ALL Courses children can use this data ***
+  const { data } = await httpInterceptedService.get("/Course/list");
+  return data;
+}
+
+export default Courses;
+..........
+features ... course-list.jsx
+
+courses/component/course-list.jsx
+---------------------------------
+import { useLoaderData } from "react-router-dom";
+
+const CourseList = () => {
+  const courses = useLoaderData(); <-------------- **
+  ...
+}
+
+... text-truncate-3 ... css class
