@@ -1,0 +1,108 @@
+15----------------------------------
+When a token has expired ...
+
+Unexpected Application Error ... status code 401
+
+1) Redirect to Login 
+2) Refresh Token <----------- **
+
+login API
+token and refresh token 
+
+(Once they expire, client applications can use a refresh token to "refresh" the access token,
+That is, a refresh token is a credential artifact that lets a client application get new access tokens
+without having to ask the user to log in again.)
+
+... interceptors ... HTTP requests ... HTTP responses
+
+http-service.js <------ In js files we can't use (React Router DOM) hooks
+---------------
+...
+httpInterceptedService.interceptors.response.use( <------------- *** response ... needs TWO arguments
+  (response) => response,
+  async (error) => { <---------- Used for error handling
+    if(error.response.status === 401) location.href= "/login";
+    return Promise.reject(error);
+  }
+)
+...
+
+pages/courseCategories/courses-categories.jsx
+---------------------------------------------
+...
+
+router.jsx
+----------
+...
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        element: <Courses />,
+        index: true,
+        loader: coursesLoader,
+      },
+      {
+        path: "course-categories", <-------------- **
+        element: <CourseCategories />,
+      },
+    ],
+  },
+
+Deferring Data Fetching ... React Router DOM <------------- **
+--------------------------------------------
+Deffered data loading is a pattern that allows the router to 
+render the next location's critical data/markup while 
+slower, non-critical route data is resolved in the background.
+
+loader <------ get data (from API, localStorage, ...)
+... fast loading data.
+
+... for API calls. (use the second way (deffering)) <---------------- **
+
+Courses.jsx
+-----------
+import { useLoaderData, defer, Await } from "react-router-dom";
+import { Suspense } from "react";
+
+const data = useLoaderData();
+  ...
+  <Suspence fallback={<Loading />}>
+     <Await resolve={data.courses}>
+      {
+        (loadedCourses) => <CourseList courses={loadedCourses} />
+      }
+    </Await>
+  </Suspense>
+  ...
+
+const coursesLoader = async () => {
+  const { data } = await httpInterceptedService.get("/Course/list");
+    return data;
+}
+
+export async function load() {
+  return defer({ <----------- *** ... multiple properties,  ... fetch data in parallel way.
+    courses: coursesLoader(),
+  })
+}
+
+export default Courses;
+____________________________
+Without defer
+
+<Await 
+  resolve={courses}
+  children={(resolvedCourses) => (<CourseList list={resolvedCourses.data}></CourseList>)}
+></Await>
+...
+export const coursesLoader = async () => {
+  const courses = httpInterceptedService.get("/Course/list");
+  return {
+    courses,
+  };
+};
+
+export default Courses;
