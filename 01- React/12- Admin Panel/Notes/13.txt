@@ -1,0 +1,29 @@
+16-------------------------------------
+Dynamic Parameters <------------- **
+
+Course
+[GET]/Course/by-id/{id}
+
+course/course-details.jsx
+
+course-details.jsx
+------------------
+...
+import { useLoaderData } from "react-router-dom"
+...
+const CourseDetails = () => {
+  const { title, coverImgUrl, ... } = useLoaderData();
+  
+export async function courseDetailsLoader({ params }) {
+  const { data } = await httpInterceptedService.get(`/Course/by-id/${params.id}`);
+  return data
+}
+
+router.jsx
+-----------
+...
+{
+  path: "courses/:id",
+  element: <CourseDetails />,
+  loader: courseDetailsLoader
+}
